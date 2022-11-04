@@ -1,6 +1,8 @@
 # awesome-identifiers
 Pick the best ID for your database
 
+## Table of Content
+[Series](#series)
 
 ## SERIES (aka INT)
 ### Specification
