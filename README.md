@@ -2,8 +2,8 @@
 Pick the best ID for your database
 
 ## Table of Content
-[SERIES (aka INT)](#series-aka-int)
-[BIGSERIES (aka BIGINT)](#bigseries-aka-bigint)
+- [SERIES (aka INT)](#series-aka-int)
+- [BIGSERIES (aka BIGINT)](#bigseries-aka-bigint)
 
 ## SERIES (aka INT)
 ### Specification
