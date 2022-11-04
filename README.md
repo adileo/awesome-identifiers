@@ -1,4 +1,4 @@
-# awesome-identifiers
+# Awesome Identifiers
 Pick the best ID for your database
 
 ## Table of Content
@@ -8,7 +8,6 @@ Pick the best ID for your database
 ## SERIES (aka INT)
 ### Specification
 | Example               |         13        |
-|-----------------------|:-----------------:|
 | Number Range          | 0 - 4,294,967,295 |
 | Numbers of bit        |         32        |
 | Numbers of characters |       0 - 10      |
