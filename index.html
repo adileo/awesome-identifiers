@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
   <head>
     <title>🔑 Awesome Identifiers</title>
@@ -40,6 +40,7 @@
     <th>BIGSERIES (aka BIGINT)</th>
     <th>Snowflake ID</th>
     <th>Sonyflake</th>
+    <th>Randflake</th>
     <th>CUID</th>
     <th>nanoId</th>
     <th>xid</th>
@@ -57,6 +58,7 @@
     <td>Like SERIES but allow up to 2^64 (Quadrillion) records, still not ideal for a distributed system.</td>
     <td>Same performance of BIGSERIES with the plus of supporting a distributed system by dedicating some bits to sharding and sequencing.</td>
     <td>Inspired by Snowflake ID, longer timestamp lifetime despite the resolution of 10ms, works on more distributed machines 2^16 than snowflake 2^10.</td>
+    <td>Inspired by Snowflake ID, works well in a distributed system, unpredictable, unique random ID generator, timestamp resolution of 1000ms, works on more distributed machines 2^17 than snowflake 2^10.</td>
     <td>Similiar to xid but larger in terms of bits footprint in favor of a better timestamp resolution of 1ms.</td>
     <td>Completly random string, works well in a distributed system, useful for public facing identifiers since it's a completly opaque token. Not useful for sorting or pagination, not K-ordered. Thereafter not ideal as a database PK.</td>
     <td>Inspired by the Mongo Object ID, but shorter in terms of chars, 20 vs 24. XID is Sortable and works well in a distributed system. Smaller binary size than UUID or ULID could improve performance on huge databases. Timestamp resolution of 1 second.</td>
@@ -78,6 +80,7 @@
     <td></td>
     <td></td>
     <td></td>
+    <td></td>
 
    
   </tr>
@@ -87,6 +90,7 @@
     <td>120310392</td>
     <td>1584093427933380608</td>
     <td></td>
+    <td>3vgoe12ccb8gh</td>
     <td>cjld2cjxh0000qzrmn831i7rn</td>
     <td>V1StGXR8_Z5jdHi6B-myT</td>
     <td>9m4e2mr0ui3e8a215n4g</td>
@@ -108,12 +112,14 @@
     <td>-</td>
     <td>-</td>
     <td>-</td>
+    <td>-</td>
 
     
   </tr>
   <tr class="even:bg-green-50 odd:bg-green-100">
     <td>Numbers of bit</td>
     <td>32</td>
+    <td>64</td>
     <td>64</td>
     <td>64</td>
     <td>64</td>
@@ -132,6 +138,7 @@
     <td>8GB</td>
     <td>8GB</td>
     <td>8GB</td>
+    <td>8GB</td>
     <td>25GB</td>
     <td>variable</td>
     <td>12GB</td>
@@ -147,6 +154,7 @@
     <td>0 - 20</td>
     <td>19</td>
     <td></td>
+    <td>13</td>
     <td>25</td>
     <td>variable</td>
     <td>20</td>
@@ -168,11 +176,13 @@
     <td></td>
     <td></td>
     <td></td>
+    <td></td>
  
   </tr>
   <trc class="even:bg-green-50 odd:bg-green-100">
     <td>Suggested DB Type</td>
     <td>INT</td>
+    <td>BIGINT</td>
     <td>BIGINT</td>
     <td>BIGINT</td>
     <td>BIGINT</td>
@@ -191,6 +201,7 @@
     <td>low</td>
     <td>low</td>
     <td>low</td>
+    <td>low (Stored decrypted) / medium (Stored encrypted)</td>
     <td>high</td>
     <td>variable</td>
     <td>medium</td>
@@ -204,6 +215,7 @@
     <td>Is timestamp based</td>
     <td>No</td>
     <td>No</td>
+    <td>Yes</td>
     <td>Yes</td>
     <td>Yes</td>
     <td>Yes</td>
@@ -221,6 +233,7 @@
     <td>Yes</td>
     <td>Yes</td>
     <td>Yes</td>
+    <td>Yes (With the Secret Key) / No (Without the Secret Key)</td>
     <td>Yes</td>
     <td>No</td>
     <td>Yes</td>
@@ -242,6 +255,7 @@
     <td>Yes</td>
     <td>Yes</td>
     <td>Yes</td>
+    <td>Yes</td>
 
   
   </tr>
@@ -251,6 +265,7 @@
     <td>Yes</td>
     <td>Yes</td>
     <td>Yes</td>
+    <td>Yes (With the Secret Key) / No (Without the Secret Key)</td>
     <td>Yes</td>
     <td>No</td>
     <td>Yes</td>
@@ -264,6 +279,7 @@
     <td>Needs to be configured (eg. machine ID, shard id)</td>
     <td>No</td>
     <td>No</td>
+    <td>Yes</td>
     <td>Yes</td>
     <td>Yes</td>
     <td>No</td>
@@ -287,6 +303,7 @@
     <td></td>
     <td></td>
     <td></td>
+    <td></td>
 
    
   </tr>
@@ -296,6 +313,7 @@
     <td>0</td>
     <td>41 bit (msec res.)</td>
     <td>39 bit (10msec res)</td>
+    <td>30 bit (1000msec res)</td>
     <td>8 chars <br>(64 bit UTF8 ecoded, 41 bit real entropy, 1msec resolution) </td>
     <td>0</td>
     <td>32 bit <br>(1sec resolution)</td>
@@ -311,6 +329,7 @@
     <td>64 bit</td>
     <td>12 bit</td>
     <td>8 bit</td>
+    <td>17 bit</td>
     <td>4 digits <br>(32 bit UTF8 encoded, 10-11bit of entropy)</td>
     <td>0</td>
     <td>24 bit <br>(starting random)</td>
@@ -326,6 +345,7 @@
     <td>0</td>
     <td>10 bit</td>
     <td>16 bit</td>
+    <td>17 bit</td>
     <td>4 chars <br>(32 bit UTF8 encoded, </td>
     <td>0</td>
     <td>40 bit <br>(24 machine + 16 process)</td>
@@ -337,6 +357,7 @@
   </tr>
   <tr class="even:bg-green-50 odd:bg-green-100">
     <td>Randomnes</td>
+    <td>0</td>
     <td>0</td>
     <td>0</td>
     <td>0</td>
@@ -362,6 +383,7 @@
     <td></td>
     <td></td>
     <td></td>
+    <td></td>
 
    
   </tr>
@@ -371,6 +393,7 @@
     <td>No</td>
     <td>No</td>
     <td>No</td>
+    <td>Yes</td>
     <td>No</td>
     <td>Yes</td>
     <td>No</td>
@@ -386,6 +409,7 @@
     <td>High</td>
     <td>Medium</td>
     <td>Medium</td>
+    <td>Low</td>
     <td>Medium</td>
     <td>Low</td>
     <td>Medium-High</td>
@@ -401,6 +425,7 @@
     <td>Yes</td>
     <td>Partially</td>
     <td>Partially</td>
+    <td>No</td>
     <td>Partially</td>
     <td>No</td>
     <td>Yes?</td>
@@ -416,6 +441,7 @@
     <td>No</td>
     <td>Yes</td>
     <td>Yes</td>
+    <td>No</td>
     <td>Yes</td>
     <td>No</td>
     <td>Yes</td>
@@ -431,6 +457,7 @@
     <td>Partially<br>(thorugh interpolation of <br>known dates it could be guessed)</td>
     <td>Yes</td>
     <td>Yes</td>
+    <td>No</td>
     <td>Yes</td>
     <td>No</td>
     <td>Yes</td>
